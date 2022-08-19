@@ -1,7 +1,17 @@
+import Navbar from './components/Navbar';
+
 import './App.css';
 
 function App() {
-  return <h1>FamPay</h1>;
+  return (
+    <>
+      <Navbar />
+
+      <main>
+        <h1>FamPay</h1>
+      </main>
+    </>
+  );
 }
 
 export default App;
