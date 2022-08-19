@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar';
+import CardsContainer from './components/CardsContainer';
 
 import './App.css';
 
@@ -8,7 +9,7 @@ function App() {
       <Navbar />
 
       <main>
-        <h1>FamPay</h1>
+        <CardsContainer />
       </main>
     </>
   );
