@@ -16,6 +16,9 @@ body {
   color: #fff;
   background-color: #fbaf03; }
 
+img {
+  display: block; }
+
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
@@ -23,10 +26,47 @@ body {
   color: #000;
   line-height: 1.5; }
 
+.ml-s {
+  margin-left: 1rem !important; }
+
+.mr-s {
+  margin-right: 1rem !important; }
+
+.mt-s {
+  margin-top: 1rem !important; }
+
+.mb-s {
+  margin-bottom: 1rem !important; }
+
 main {
   border-radius: 1.2rem;
-  background-color: #f7f6f3; }
+  background-color: #f7f6f3;
+  overflow: scroll; }
 
 .nav {
   text-align: center;
   margin: 2rem; }
+
+.btn {
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 1rem 4rem;
+  border-radius: 6px; }
+
+.big-display-card {
+  padding: 2.5rem 3.5rem;
+  border-radius: 1.2rem;
+  margin: 2rem;
+  background-color: red; }
+  .big-display-card__img {
+    margin-bottom: 1.5rem; }
+  .big-display-card__title {
+    margin-bottom: 3rem;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    font-weight: 500; }
+  .big-display-card__description {
+    margin-bottom: 3rem;
+    font-size: 1.2rem; }

@@ -1,0 +1,22 @@
+.big-display-card {
+  padding: 2.5rem 3.5rem;
+  border-radius: 1.2rem;
+  margin: 2rem;
+  background-color: red;
+
+  &__img {
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    font-weight: 500;
+  }
+
+  &__description {
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+  }
+}
