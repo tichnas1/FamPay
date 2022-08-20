@@ -65,16 +65,32 @@ main {
   padding: 1rem 4rem;
   border-radius: 6px; }
 
+.card-row {
+  display: flex;
+  overflow-x: scroll; }
+
+.card--full-width {
+  flex-basis: calc(100vw - 4rem);
+  flex-shrink: 0; }
+
+.card--fit-content {
+  min-width: fit-content; }
+
 .big-display-card-container {
   display: flex;
-  margin: 2rem;
   background-color: #fff;
-  border-radius: 1.2rem; }
+  border-radius: 1.2rem;
+  overflow-x: hidden;
+  margin: 2rem; }
+  .big-display-card-container:not(:first-child) {
+    margin-left: 0; }
 
 .big-display-card {
   padding: 2.5rem 3.5rem;
   border-radius: 1.2rem;
-  background-color: red; }
+  background-color: red;
+  flex-basis: 100%;
+  flex-shrink: 0; }
   .big-display-card__img {
     margin-bottom: 1.5rem; }
   .big-display-card__title {

@@ -1,14 +1,18 @@
 .big-display-card-container {
   display: flex;
-  margin: 2rem;
   background-color: $color-white;
   border-radius: 1.2rem;
+  overflow-x: hidden;
+
+  @include card-margin;
 }
 
 .big-display-card {
   padding: 2.5rem 3.5rem;
   border-radius: 1.2rem;
   background-color: red;
+  flex-basis: 100%;
+  flex-shrink: 0;
 
   &__img {
     margin-bottom: 1.5rem;

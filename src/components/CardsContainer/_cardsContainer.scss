@@ -1,0 +1,15 @@
+.card-row {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.card {
+  &--full-width {
+    flex-basis: calc(100vw - 4rem);
+    flex-shrink: 0;
+  }
+
+  &--fit-content {
+    min-width: fit-content;
+  }
+}

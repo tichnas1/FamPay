@@ -1,0 +1,7 @@
+@mixin card-margin {
+  margin: 2rem;
+
+  &:not(:first-child) {
+    margin-left: 0;
+  }
+}

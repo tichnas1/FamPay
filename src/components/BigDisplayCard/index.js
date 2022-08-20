@@ -7,7 +7,7 @@ import CTA from '../CTA';
 import FormatText from '../FormatText';
 import SideActions from './SideActions';
 
-function BigDisplayCard({ card }) {
+function BigDisplayCard({ card, widthClassName, containerClassName }) {
   const {
     name,
     formatted_title: formattedTitle,
@@ -49,13 +49,13 @@ function BigDisplayCard({ card }) {
   if (hidden) return null;
 
   return (
-    <div className='big-display-card-container'>
+    <div className={`big-display-card-container ${containerClassName}`}>
       {sideActions && <SideActions onRemind={onRemind} onDismiss={onDismiss} />}
 
       <div
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
-        className='big-display-card'
+        className={`big-display-card ${widthClassName}`}
       >
         <CardImage imageData={icon} className='big-display-card__img' alt='' />
 

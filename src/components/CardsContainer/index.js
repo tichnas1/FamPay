@@ -17,12 +17,27 @@ function CardsContainer() {
   return (
     <PullToRefresh onRefresh={() => window.location.reload()}>
       {data.card_groups.map(cardGroup => {
-        const { id, design_type, cards } = cardGroup;
+        const {
+          id,
+          design_type,
+          cards,
+          is_scrollable: isScrollable,
+        } = cardGroup;
 
-        // TODO: Support rendering multiple cards in a single cardGroup
         switch (design_type) {
           case DESIGN_TYPE.BigDisplayCard:
-            return <BigDisplayCard key={id} card={cards[0]} />;
+            return (
+              <div key={id} className='card-row'>
+                {cards.map(card => (
+                  <BigDisplayCard
+                    key={card.name}
+                    card={card}
+                    widthClassName={isScrollable ? 'card--full-width' : ''}
+                    containerClassName={isScrollable ? 'card--fit-content' : ''}
+                  />
+                ))}
+              </div>
+            );
           default:
             return null;
         }
