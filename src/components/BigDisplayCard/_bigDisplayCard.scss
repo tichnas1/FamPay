@@ -1,7 +1,13 @@
+.big-display-card-container {
+  display: flex;
+  margin: 2rem;
+  background-color: $color-white;
+  border-radius: 1.2rem;
+}
+
 .big-display-card {
   padding: 2.5rem 3.5rem;
   border-radius: 1.2rem;
-  margin: 2rem;
   background-color: red;
 
   &__img {
@@ -18,5 +24,29 @@
   &__description {
     margin-bottom: 3rem;
     font-size: 1.2rem;
+  }
+}
+
+.big-display-card-side-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3.5rem;
+  animation: stretch 2s;
+}
+
+.big-display-card-side-action {
+  background-color: $color-grey-1;
+  margin: 0 2rem;
+  border-radius: 1.2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  span {
+    white-space: nowrap;
+    font-size: 1rem;
   }
 }

@@ -1,10 +1,15 @@
+import { useState } from 'react';
+
+import { useDismissCard, useLongPress } from '../../utils/hooks';
 import openLink from '../../utils/openLink';
 import CardImage from '../CardImage';
 import CTA from '../CTA';
 import FormatText from '../FormatText';
+import SideActions from './SideActions';
 
 function BigDisplayCard({ card }) {
   const {
+    name,
     formatted_title: formattedTitle,
     title,
     formatted_description: formattedDescription,
@@ -18,26 +23,59 @@ function BigDisplayCard({ card }) {
     cta: ctaList,
   } = card;
 
+  const [dismiss, isDismissed] = useDismissCard(name);
+  const [sideActions, setSideActions] = useState(false);
+  const [hidden, setHidden] = useState(isDismissed);
+
+  const onCardClick = () => {
+    if (url) openLink(url);
+  };
+
+  const onCardLongPress = () => {
+    setSideActions(!sideActions);
+  };
+
+  const [onMouseDown, onMouseUp] = useLongPress(onCardLongPress, onCardClick);
+
+  const onRemind = () => {
+    setHidden(true);
+  };
+
+  const onDismiss = () => {
+    setHidden(true);
+    dismiss();
+  };
+
+  if (hidden) return null;
+
   return (
-    <div onClick={() => url && openLink(url)} className='big-display-card'>
-      <CardImage imageData={icon} className='big-display-card__img' alt='' />
+    <div className='big-display-card-container'>
+      {sideActions && <SideActions onRemind={onRemind} onDismiss={onDismiss} />}
 
-      <FormatText
-        tag='h4'
-        className='big-display-card__title'
-        formatData={formattedTitle}
-        fallback={title}
-      />
+      <div
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+        className='big-display-card'
+      >
+        <CardImage imageData={icon} className='big-display-card__img' alt='' />
 
-      <FormatText
-        className='big-display-card__description'
-        formatData={formattedDescription}
-        fallback={description}
-      />
+        <FormatText
+          tag='h4'
+          className='big-display-card__title'
+          formatData={formattedTitle}
+          fallback={title}
+        />
 
-      {ctaList.map((cta, i) => (
-        <CTA key={i} cta={cta} />
-      ))}
+        <FormatText
+          className='big-display-card__description'
+          formatData={formattedDescription}
+          fallback={description}
+        />
+
+        {ctaList.map((cta, i) => (
+          <CTA key={i} cta={cta} />
+        ))}
+      </div>
     </div>
   );
 }
