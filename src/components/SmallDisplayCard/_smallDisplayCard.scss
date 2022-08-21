@@ -1,0 +1,28 @@
+.small-display-card {
+  flex-grow: 1;
+  display: flex;
+  border-radius: 1.2rem;
+  padding: 1rem;
+  gap: 1.5rem;
+  align-items: center;
+  overflow-x: hidden;
+
+  @include card-margin;
+
+  &__img {
+    width: 3.5rem;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+  }
+
+  &__title {
+    font-weight: 500;
+  }
+
+  &__description {
+    color: $color-grey-2;
+  }
+}

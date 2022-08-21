@@ -4,6 +4,7 @@ import PullToRefresh from 'react-simple-pull-to-refresh';
 import cardApi from '../../api/card';
 import { DESIGN_TYPE } from '../../constants';
 import BigDisplayCard from '../BigDisplayCard';
+import SmallDisplayCard from '../SmallDisplayCard';
 
 function CardsContainer() {
   const { data, error } = useSWR('get-all-cards', cardApi.getAllCards);
@@ -30,6 +31,19 @@ function CardsContainer() {
               <div key={id} className='card-row'>
                 {cards.map(card => (
                   <BigDisplayCard
+                    key={card.name}
+                    card={card}
+                    widthClassName={isScrollable ? 'card--full-width' : ''}
+                    containerClassName={isScrollable ? 'card--fit-content' : ''}
+                  />
+                ))}
+              </div>
+            );
+          case DESIGN_TYPE.SmallDisplayCard:
+            return (
+              <div key={id} className='card-row'>
+                {cards.map(card => (
+                  <SmallDisplayCard
                     key={card.name}
                     card={card}
                     widthClassName={isScrollable ? 'card--full-width' : ''}

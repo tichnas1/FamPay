@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import getBackground from '../../utils/getBackground';
 import { useDismissCard, useLongPress } from '../../utils/hooks';
 import openLink from '../../utils/openLink';
 import CardImage from '../CardImage';
@@ -16,11 +17,10 @@ function BigDisplayCard({ card, widthClassName, containerClassName }) {
     description,
     icon,
     url,
-    // TODO: Use bg details from here, instead of hardcoding
-    // bg_image: bgImage,
-    // bg_color: bgColor,
-    // bg_gradient: bgGradient,
-    cta: ctaList,
+    bg_image: bgImage,
+    bg_color: bgColor,
+    bg_gradient: bgGradient,
+    cta: ctaList = [],
   } = card;
 
   const [dismiss, isDismissed] = useDismissCard(name);
@@ -56,6 +56,7 @@ function BigDisplayCard({ card, widthClassName, containerClassName }) {
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
         className={`big-display-card ${widthClassName}`}
+        style={{ background: getBackground(bgImage, bgColor, bgGradient) }}
       >
         <CardImage imageData={icon} className='big-display-card__img' alt='' />
 
