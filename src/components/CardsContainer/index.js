@@ -7,6 +7,7 @@ import BigDisplayCard from '../BigDisplayCard';
 import SmallDisplayCard from '../SmallDisplayCard';
 import SmallCardWithArrow from '../SmallCardWithArrow';
 import ImageCard from '../ImageCard';
+import DynamicWidthCard from '../DynamicWidthCard';
 
 function CardsContainer() {
   const { data, error } = useSWR('get-all-cards', cardApi.getAllCards);
@@ -28,6 +29,7 @@ function CardsContainer() {
           design_type,
           cards,
           is_scrollable: isScrollable,
+          height,
         } = cardGroup;
 
         switch (design_type) {
@@ -79,6 +81,18 @@ function CardsContainer() {
                     card={card}
                     widthClassName={isScrollable ? 'card--full-width' : ''}
                     containerClassName={isScrollable ? 'card--fit-content' : ''}
+                  />
+                ))}
+              </div>
+            );
+          case DESIGN_TYPE.DynamicWidthCard:
+            return (
+              <div key={id} className='card-row'>
+                {cards.map(card => (
+                  <DynamicWidthCard
+                    key={card.name}
+                    card={card}
+                    height={height}
                   />
                 ))}
               </div>

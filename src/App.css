@@ -181,3 +181,13 @@ main {
   .image-card__img {
     width: 100%;
     opacity: 0; }
+
+.dynamic-width-card {
+  border-radius: 1.2rem;
+  margin: 2rem;
+  margin-top: 0; }
+  .dynamic-width-card:not(:first-child) {
+    margin-left: 0; }
+  .dynamic-width-card__img {
+    height: 100%;
+    opacity: 0; }

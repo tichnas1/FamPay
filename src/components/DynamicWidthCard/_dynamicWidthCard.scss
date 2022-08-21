@@ -1,0 +1,10 @@
+.dynamic-width-card {
+  border-radius: 1.2rem;
+
+  @include card-margin;
+
+  &__img {
+    height: 100%;
+    opacity: 0;
+  }
+}
