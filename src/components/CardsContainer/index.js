@@ -6,6 +6,7 @@ import { DESIGN_TYPE } from '../../constants';
 import BigDisplayCard from '../BigDisplayCard';
 import SmallDisplayCard from '../SmallDisplayCard';
 import SmallCardWithArrow from '../SmallCardWithArrow';
+import ImageCard from '../ImageCard';
 
 function CardsContainer() {
   const { data, error } = useSWR('get-all-cards', cardApi.getAllCards);
@@ -61,6 +62,19 @@ function CardsContainer() {
               <div key={id} className='card-row'>
                 {cards.map(card => (
                   <SmallCardWithArrow
+                    key={card.name}
+                    card={card}
+                    widthClassName={isScrollable ? 'card--full-width' : ''}
+                    containerClassName={isScrollable ? 'card--fit-content' : ''}
+                  />
+                ))}
+              </div>
+            );
+          case DESIGN_TYPE.ImageCard:
+            return (
+              <div key={id} className='card-row'>
+                {cards.map(card => (
+                  <ImageCard
                     key={card.name}
                     card={card}
                     widthClassName={isScrollable ? 'card--full-width' : ''}

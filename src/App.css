@@ -148,7 +148,7 @@ main {
   .small-display-card__description {
     color: rgba(27, 27, 30, 0.7255); }
 
-.small-display-card {
+.small-card-with-arrow {
   flex-grow: 1;
   display: flex;
   border-radius: 1.2rem;
@@ -158,14 +158,26 @@ main {
   overflow-x: hidden;
   margin: 2rem;
   margin-top: 0; }
-  .small-display-card:not(:first-child) {
+  .small-card-with-arrow:not(:first-child) {
     margin-left: 0; }
-  .small-display-card__img {
+  .small-card-with-arrow__img {
     width: 3.5rem; }
-  .small-display-card__text {
+  .small-card-with-arrow__text {
     font-size: 1.4rem;
     line-height: 1.7rem; }
-  .small-display-card__title {
+  .small-card-with-arrow__title {
     font-weight: 500; }
-  .small-display-card__description {
+  .small-card-with-arrow__description {
     color: rgba(27, 27, 30, 0.7255); }
+
+.image-card {
+  flex-grow: 1;
+  border-radius: 1.2rem;
+  overflow-x: hidden;
+  margin: 2rem;
+  margin-top: 0; }
+  .image-card:not(:first-child) {
+    margin-left: 0; }
+  .image-card__img {
+    width: 100%;
+    opacity: 0; }
