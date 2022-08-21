@@ -5,6 +5,7 @@ import cardApi from '../../api/card';
 import { DESIGN_TYPE } from '../../constants';
 import BigDisplayCard from '../BigDisplayCard';
 import SmallDisplayCard from '../SmallDisplayCard';
+import SmallCardWithArrow from '../SmallCardWithArrow';
 
 function CardsContainer() {
   const { data, error } = useSWR('get-all-cards', cardApi.getAllCards);
@@ -16,7 +17,10 @@ function CardsContainer() {
   if (!data) return 'Loading';
 
   return (
-    <PullToRefresh onRefresh={() => window.location.reload()}>
+    <PullToRefresh
+      className='cards-container'
+      onRefresh={() => window.location.reload()}
+    >
       {data.card_groups.map(cardGroup => {
         const {
           id,
@@ -44,6 +48,19 @@ function CardsContainer() {
               <div key={id} className='card-row'>
                 {cards.map(card => (
                   <SmallDisplayCard
+                    key={card.name}
+                    card={card}
+                    widthClassName={isScrollable ? 'card--full-width' : ''}
+                    containerClassName={isScrollable ? 'card--fit-content' : ''}
+                  />
+                ))}
+              </div>
+            );
+          case DESIGN_TYPE.SmallCardWithArrow:
+            return (
+              <div key={id} className='card-row'>
+                {cards.map(card => (
+                  <SmallCardWithArrow
                     key={card.name}
                     card={card}
                     widthClassName={isScrollable ? 'card--full-width' : ''}

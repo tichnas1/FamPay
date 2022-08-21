@@ -65,6 +65,9 @@ main {
   padding: 1rem 4rem;
   border-radius: 6px; }
 
+.cards-container {
+  padding-top: 2rem; }
+
 .card-row {
   display: flex;
   overflow-x: scroll; }
@@ -82,7 +85,8 @@ main {
   background-color: #fff;
   border-radius: 1.2rem;
   overflow-x: hidden;
-  margin: 2rem; }
+  margin: 2rem;
+  margin-top: 0; }
   .big-display-card-container:not(:first-child) {
     margin-left: 0; }
 
@@ -130,7 +134,30 @@ main {
   gap: 1.5rem;
   align-items: center;
   overflow-x: hidden;
-  margin: 2rem; }
+  margin: 2rem;
+  margin-top: 0; }
+  .small-display-card:not(:first-child) {
+    margin-left: 0; }
+  .small-display-card__img {
+    width: 3.5rem; }
+  .small-display-card__text {
+    font-size: 1.4rem;
+    line-height: 1.7rem; }
+  .small-display-card__title {
+    font-weight: 500; }
+  .small-display-card__description {
+    color: rgba(27, 27, 30, 0.7255); }
+
+.small-display-card {
+  flex-grow: 1;
+  display: flex;
+  border-radius: 1.2rem;
+  padding: 1rem;
+  gap: 1.5rem;
+  align-items: center;
+  overflow-x: hidden;
+  margin: 2rem;
+  margin-top: 0; }
   .small-display-card:not(:first-child) {
     margin-left: 0; }
   .small-display-card__img {
