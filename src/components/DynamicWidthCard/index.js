@@ -19,7 +19,7 @@ function DynamicWidthCard({ card, height }) {
       onClick={onCardClick}
       className='dynamic-width-card'
       style={{
-        background: getBackground(bgImage, bgColor, bgGradient),
+        ...getBackground(bgImage, bgColor, bgGradient),
         height: `${height}px`,
       }}
     >

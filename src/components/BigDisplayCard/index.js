@@ -56,7 +56,7 @@ function BigDisplayCard({ card, widthClassName, containerClassName }) {
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
         className={`big-display-card ${widthClassName}`}
-        style={{ background: getBackground(bgImage, bgColor, bgGradient) }}
+        style={{ ...getBackground(bgImage, bgColor, bgGradient) }}
       >
         <CardImage imageData={icon} className='big-display-card__img' alt='' />
 

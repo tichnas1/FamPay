@@ -18,7 +18,7 @@ function ImageCard({ card, widthClassName, containerClassName }) {
     <div
       onClick={onCardClick}
       className={`image-card ${widthClassName} ${containerClassName}`}
-      style={{ background: getBackground(bgImage, bgColor, bgGradient) }}
+      style={{ ...getBackground(bgImage, bgColor, bgGradient) }}
     >
       {/* CardImage is added just to set card size. UI displays bgImage */}
       <CardImage imageData={bgImage} className='image-card__img' alt='' />

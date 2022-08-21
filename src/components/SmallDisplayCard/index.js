@@ -24,7 +24,7 @@ function SmallDisplayCard({ card, widthClassName, containerClassName }) {
     <div
       onClick={onCardClick}
       className={`small-display-card ${widthClassName} ${containerClassName}`}
-      style={{ background: getBackground(bgImage, bgColor, bgGradient) }}
+      style={{ ...getBackground(bgImage, bgColor, bgGradient) }}
     >
       <CardImage imageData={icon} className='small-display-card__img' alt='' />
 

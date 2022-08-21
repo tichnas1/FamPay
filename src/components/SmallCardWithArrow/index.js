@@ -25,7 +25,7 @@ function SmallCardWithArrow({ card, widthClassName, containerClassName }) {
     <div
       onClick={onCardClick}
       className={`small-card-with-arrow ${widthClassName} ${containerClassName}`}
-      style={{ background: getBackground(bgImage, bgColor, bgGradient) }}
+      style={{ ...getBackground(bgImage, bgColor, bgGradient) }}
     >
       <CardImage
         imageData={icon}
