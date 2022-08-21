@@ -8,15 +8,15 @@ import SmallDisplayCard from '../SmallDisplayCard';
 import SmallCardWithArrow from '../SmallCardWithArrow';
 import ImageCard from '../ImageCard';
 import DynamicWidthCard from '../DynamicWidthCard';
+import Loading from '../Loading';
+import Error from '../Error';
 
 function CardsContainer() {
   const { data, error } = useSWR('get-all-cards', cardApi.getAllCards);
 
-  console.log('data', data);
-  console.log('error', error);
+  if (error) return <Error />;
 
-  if (error) return 'Error';
-  if (!data) return 'Loading';
+  if (!data) return <Loading />;
 
   return (
     <PullToRefresh
